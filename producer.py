@@ -8,7 +8,7 @@ def delivery_report(err, msg):
     else:
         print('Message delivered to {} [{}]'.format(msg.topic(), msg.partition()))
 
-p.produce('mytopic', 'Hello, World!', callback=delivery_report)
+p.produce('logs', 'Hello World!', callback=delivery_report)
 
 # Wait for any outstanding messages to be delivered and reports to be received
 p.flush()

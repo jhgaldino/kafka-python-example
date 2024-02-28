@@ -5,7 +5,7 @@ def create_consumer():
     consumer = Consumer(conf)
 
     try:
-        consumer.subscribe(['mytopic'])
+        consumer.subscribe(['logs'])
 
         while True:
             msg = consumer.poll(1.0)
@@ -19,3 +19,8 @@ def create_consumer():
 
     except KeyboardInterrupt:
         pass
+    finally:
+        consumer.close()
+
+if __name__ == '__main__':
+    create_consumer()
